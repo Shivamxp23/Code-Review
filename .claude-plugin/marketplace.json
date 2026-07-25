@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "reviewer",
+  "description": "Unified code review: codebase analysis, security audit, and lazy senior dev mode.",
+  "owner": {
+    "name": "Merged"
+  },
+  "plugins": [
+    {
+      "name": "reviewer",
+      "description": "Codebase analysis, security audit, lazy senior dev mode — all in one plugin.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

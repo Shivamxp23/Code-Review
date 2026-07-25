@@ -1,0 +1,38 @@
+{
+  "name": "@reviewer/reviewer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Unified code review toolkit: codebase analysis (knowledge graphs), security audit (OWASP/CWE), and lazy senior dev mode (YAGNI).",
+  "keywords": ["opencode-plugin", "code-review", "skills", "qoder", "pi-package"],
+  "license": "MIT",
+  "main": "./.opencode/plugins/reviewer.mjs",
+  "exports": {
+    ".": "./.opencode/plugins/reviewer.mjs",
+    "./plugin": "./.opencode/plugins/reviewer.mjs"
+  },
+  "files": [
+    "AGENTS.md",
+    "hooks/",
+    "skills/",
+    "agents/",
+    "src/",
+    "packages/",
+    ".opencode/",
+    ".qoder/",
+    ".qoder-plugin/",
+    "pi-extension/",
+    "scripts/",
+    "assets/",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "echo tests placeholder"
+  },
+  "pi": {
+    "extensions": ["./pi-extension/index.js"],
+    "skills": ["./skills"]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

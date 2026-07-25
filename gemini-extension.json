@@ -1,0 +1,6 @@
+{
+  "name": "reviewer",
+  "version": "1.0.0",
+  "description": "Unified code review toolkit: codebase analysis, security audit, lazy senior dev mode.",
+  "contextFileName": "AGENTS.md"
+}

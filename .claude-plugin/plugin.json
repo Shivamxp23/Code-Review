@@ -1,0 +1,9 @@
+{
+  "name": "reviewer",
+  "version": "1.0.0",
+  "description": "Unified code review toolkit: codebase analysis, security audit, and lazy senior dev mode.",
+  "author": {
+    "name": "Merged"
+  },
+  "hooks": "./hooks/claude-codex-hooks.json"
+}
