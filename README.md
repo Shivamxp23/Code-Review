@@ -54,23 +54,65 @@
 
 ### Claude Code
 ```bash
-# From the skill directory
-claude mcp add reviewer
+claude plugins install github:Shivamxp23/Code-Review
 ```
 
-Or add to your `.claude/` directory:
+Or manually:
 ```bash
-cp -r reviewer/ ~/.claude/skills/reviewer/
+git clone https://github.com/Shivamxp23/Code-Review.git reviewer
+claude plugins install ./reviewer
 ```
 
-### Cursor
-The `.cursor/rules/reviewer.mdc` file is auto-discovered when the skill directory is in your project.
+### Codex
+```bash
+codex plugin marketplace add Shivamxp23/Code-Review
+codex plugin add reviewer@reviewer
+```
 
-### Gemini CLI / Antigravity
-Add to your `.gemini/config/skills/` directory or reference in `skills.json`.
+### GitHub Copilot
+```bash
+copilot plugin marketplace add Shivamxp23/Code-Review
+copilot plugin install reviewer@reviewer
+```
 
-### Other Harnesses
-Built-in integration files are included for: Windsurf, Kiro, Cline, Qodo, OpenCode, OpenClaw, and any Hermes-compatible tool.
+### pi / Hermes
+```bash
+pi install git:github.com/Shivamxp23/Code-Review
+```
+
+### Gemini CLI
+```bash
+git clone https://github.com/Shivamxp23/Code-Review.git
+mkdir -p ~/.gemini/extensions/
+cp gemini-extension.json ~/.gemini/extensions/reviewer.json
+```
+
+### Swival
+```bash
+swival skills add https://github.com/Shivamxp23/Code-Review
+```
+
+### Manual (any harness)
+```bash
+git clone https://github.com/Shivamxp23/Code-Review.git reviewer
+cd reviewer
+```
+
+### Zero-install auto-discovery
+
+These harnesses auto-discover integration files when the repo is in your project — just clone and go:
+
+| Harness | Auto-discovered file |
+|----------|---------------------|
+| Cursor | `.cursor/rules/reviewer.mdc` |
+| Windsurf | `.windsurf/rules/reviewer.md` |
+| Cline | `.clinerules/reviewer.md` |
+| Kiro | `.kiro/steering/reviewer.md` |
+| Qodo | `.qoder/rules/reviewer.md` + `.qoder-plugin/plugin.json` |
+| OpenCode | `.opencode/plugins/reviewer.mjs` |
+| OpenClaw | `.openclaw/skills/reviewer/SKILL.md` |
+| Devin | `.devin-plugin/plugin.json` |
+| Antigravity / CodeWhale / Amp / Jules / Zed | `AGENTS.md` |
 
 ## Commands
 
@@ -95,23 +137,28 @@ Built-in integration files are included for: Windsurf, Kiro, Cline, Qodo, OpenCo
 
 ## Harness Support
 
-This skill includes auto-discovery integration files for **13 harnesses**:
+This skill includes auto-discovery integration files for **18 harnesses**:
 
-| Directory | Harness |
-|-----------|---------|
-| `.claude-plugin/` | Claude Code |
-| `.cursor/rules/` | Cursor |
-| `.kiro/steering/` | Kiro |
-| `.windsurf/rules/` | Windsurf |
-| `.clinerules/` | Cline |
-| `.qoder/rules/` | Qodo |
-| `.agents/rules/` | Agents.md |
-| `.opencode/` | OpenCode |
-| `.openclaw/` | OpenClaw |
-| `.gemini/` | Gemini CLI |
-| `.codex/` | Codex |
-| `.hermes/` | Hermes |
-| `commands/` | TOML Commands |
+| Directory | Harness | Install |
+|-----------|---------|---------|
+| `.claude-plugin/` | Claude Code | `claude plugins install github:Shivamxp23/Code-Review` |
+| `.codex-plugin/` | Codex | `codex plugin add reviewer@reviewer` |
+| `.cursor/rules/` | Cursor | auto-discovered |
+| `.windsurf/rules/` | Windsurf | auto-discovered |
+| `.clinerules/` | Cline | auto-discovered |
+| `.kiro/steering/` | Kiro | auto-discovered |
+| `.qoder-plugin/` | Qodo | auto-discovered |
+| `.qoder/rules/` | Qodo | auto-discovered |
+| `.opencode/` | OpenCode | auto-discovered |
+| `.openclaw/` | OpenClaw | auto-discovered |
+| `.devin-plugin/` | Devin | auto-discovered |
+| `.agents/rules/` | Agents.md | auto-discovered |
+| `gemini-extension.json` | Gemini CLI | copy to `~/.gemini/extensions/` |
+| `plugin.yaml` | Hermes | `pi install git:github.com/Shivamxp23/Code-Review` |
+| `pi-extension/` | pi | `pi install git:github.com/Shivamxp23/Code-Review` |
+| `AGENTS.md` | Antigravity / CodeWhale / Amp / Jules / Zed | auto-discovered |
+| `commands/` | TOML Commands | auto-discovered |
+| `skills/` | Generic / Swival | `swival skills add https://github.com/Shivamxp23/Code-Review` |
 
 ## License
 
