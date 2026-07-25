@@ -54,13 +54,13 @@
 
 ### Claude Code
 ```bash
-claude plugins install github:Shivamxp23/Code-Review
-```
-
-Or manually:
-```bash
 git clone https://github.com/Shivamxp23/Code-Review.git reviewer
 claude plugins install ./reviewer
+```
+
+Or copy directly:
+```bash
+git clone https://github.com/Shivamxp23/Code-Review.git ~/.claude/skills/reviewer
 ```
 
 ### Codex
