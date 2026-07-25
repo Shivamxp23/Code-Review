@@ -54,14 +54,10 @@
 
 ### Claude Code
 ```bash
-git clone https://github.com/Shivamxp23/Code-Review.git reviewer
-claude plugins install ./reviewer
-```
-
-Or copy directly:
-```bash
 git clone https://github.com/Shivamxp23/Code-Review.git ~/.claude/skills/reviewer
 ```
+
+Claude Code auto-discovers skills in `~/.claude/skills/`. Restart Claude Code to activate.
 
 ### Codex
 ```bash
