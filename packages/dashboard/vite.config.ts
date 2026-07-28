@@ -27,12 +27,14 @@ function graphFileCandidates(fileName: string): string[] {
   const roots = [
     ...(graphDir ? [graphDir] : []),
     process.cwd(),
+    path.resolve(process.cwd(), "../.."),
     path.resolve(process.cwd(), "../../.."),
   ];
   return roots.flatMap((root) =>
     UA_DIR_CANDIDATES.map((dir) => path.resolve(root, dir, fileName)),
   );
 }
+
 
 function findGraphFile(fileName: string): string | null {
   return graphFileCandidates(fileName).find((candidate) => fs.existsSync(candidate)) ?? null;

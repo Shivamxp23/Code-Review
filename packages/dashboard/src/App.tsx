@@ -162,6 +162,13 @@ function Dashboard({ accessToken }: { accessToken: string }) {
         // Missing or invalid project metadata" instead of the real cause
         // (graph file not found / GRAPH_DIR unset). See issues #288, #406.
         if (!res.ok) {
+          // If the server rejects our token, clear the stale cached one
+          // so the TokenGate appears on next render.
+          if (res.status === 403) {
+            sessionStorage.removeItem(SESSION_TOKEN_KEY);
+            window.location.reload();
+            return;
+          }
           let detail = `HTTP ${res.status}`;
           try {
             const body = await res.json();
@@ -174,6 +181,7 @@ function Dashboard({ accessToken }: { accessToken: string }) {
         return res.json();
       })
       .then((data: unknown) => {
+        if (!data) return; // guard against 403 reload path
         const result = validateGraph(data);
         if (result.success && result.data) {
           setGraph(result.data);
@@ -202,6 +210,7 @@ function Dashboard({ accessToken }: { accessToken: string }) {
         setLoadError(`Failed to load knowledge graph: ${err instanceof Error ? err.message : String(err)}`);
       });
   }, [setGraph]);
+
 
   useEffect(() => {
     if (
