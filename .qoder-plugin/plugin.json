@@ -1,0 +1,13 @@
+{
+  "name": "reviewer",
+  "version": "1.0.0",
+  "description": "Unified code review toolkit: codebase analysis, security audit, and lazy senior dev mode.",
+  "author": {
+    "name": "Merged"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "codebase-analysis", "security-audit", "yagni"],
+  "skills": "./skills/",
+  "rules": "./.qoder/rules/",
+  "hooks": "./hooks/qoder-hooks.json"
+}

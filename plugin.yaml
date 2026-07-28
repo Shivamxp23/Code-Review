@@ -1,0 +1,32 @@
+name: reviewer
+version: 1.0.0
+description: Unified code review toolkit for Hermes Agent — codebase analysis, security audit, lazy senior dev mode.
+author: Merged
+provides_hooks:
+  - pre_llm_call
+  - pre_gateway_dispatch
+provides_commands:
+  - reviewer-lazy
+  - reviewer-lazy-review
+  - reviewer-lazy-audit
+  - reviewer-lazy-debt
+  - reviewer-lazy-gain
+  - reviewer-lazy-help
+provides_skills:
+  - reviewer
+  - reviewer-chat
+  - reviewer-dashboard
+  - reviewer-diff
+  - reviewer-domain
+  - reviewer-explain
+  - reviewer-figma
+  - reviewer-knowledge
+  - reviewer-onboard
+  - reviewer-security
+  - reviewer-qa
+  - reviewer-lazy
+  - reviewer-lazy-review
+  - reviewer-lazy-audit
+  - reviewer-lazy-debt
+  - reviewer-lazy-gain
+  - reviewer-lazy-help

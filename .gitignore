@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Data directories (project-specific, not committed with the skill)
+.reviewer/
+.reviewer-data/
+.understand-anything/
+.ua/
+
+# Intermediate analysis artifacts
+intermediate/
+tmp/
+.trash-*/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Test coverage
+coverage/

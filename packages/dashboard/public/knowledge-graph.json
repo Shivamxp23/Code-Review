@@ -1,0 +1,394 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Credit-Score-investment-advisor",
+    "languages": [
+      "python",
+      "csv",
+      "markdown"
+    ],
+    "frameworks": [
+      "Streamlit",
+      "FastAPI",
+      "scikit-learn"
+    ],
+    "description": "Financial Credit Scoring and Investment Advisory System (Nivesh Mitra)",
+    "analyzedAt": "2026-07-28T18:40:00.000Z",
+    "gitCommitHash": "main"
+  },
+  "nodes": [
+    {
+      "id": "file:data/generate_synthetic_data.py",
+      "type": "file",
+      "name": "generate_synthetic_data.py",
+      "filePath": "data/generate_synthetic_data.py",
+      "lineRange": [
+        1,
+        80
+      ],
+      "summary": "Data Generation Module -- Creates synthetic user credit profiles, financial metrics, and investment preferences into CSV dataset.",
+      "tags": [
+        "python",
+        "data",
+        "synthetic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:data/synthetic_users.csv",
+      "type": "table",
+      "name": "synthetic_users.csv",
+      "filePath": "data/synthetic_users.csv",
+      "summary": "Financial Dataset -- Contains user demographic, credit history, income, loan defaults, and investment profile data.",
+      "tags": [
+        "data",
+        "csv",
+        "table"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/scoring/model.py",
+      "type": "file",
+      "name": "model.py",
+      "filePath": "backend/scoring/model.py",
+      "lineRange": [
+        1,
+        75
+      ],
+      "summary": "Credit Risk ML Model -- Trains Random Forest Classifier on synthetic credit profiles to predict credit scores and risk tiers.",
+      "tags": [
+        "python",
+        "ml",
+        "scoring",
+        "scikit-learn"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/scoring/explain.py",
+      "type": "file",
+      "name": "explain.py",
+      "filePath": "backend/scoring/explain.py",
+      "lineRange": [
+        1,
+        60
+      ],
+      "summary": "Model Explainability -- Uses SHAP and feature importance values to generate user-friendly credit score decision factors.",
+      "tags": [
+        "python",
+        "ml",
+        "explainability",
+        "shap"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/scoring/credit_model.pkl",
+      "type": "resource",
+      "name": "credit_model.pkl",
+      "filePath": "backend/scoring/credit_model.pkl",
+      "summary": "Trained Model Weights -- Serialized Random Forest machine learning pipeline for fast scoring inference.",
+      "tags": [
+        "binary",
+        "pickle",
+        "model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/advisor/nivesh_mitra.py",
+      "type": "file",
+      "name": "nivesh_mitra.py",
+      "filePath": "backend/advisor/nivesh_mitra.py",
+      "lineRange": [
+        1,
+        280
+      ],
+      "summary": "Investment Recommendation Engine -- Core advisor rule base recommending stocks, mutual funds, gold, and FDs based on credit score.",
+      "tags": [
+        "python",
+        "advisor",
+        "fintech",
+        "rules"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:backend/advisor/growth_projection.py",
+      "type": "file",
+      "name": "growth_projection.py",
+      "filePath": "backend/advisor/growth_projection.py",
+      "lineRange": [
+        1,
+        110
+      ],
+      "summary": "Compound Interest and Portfolio Calculator -- Projects multi-year asset growth, risk-adjusted returns, and SIP scenarios.",
+      "tags": [
+        "python",
+        "math",
+        "finance",
+        "projection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        1,
+        95
+      ],
+      "summary": "FastAPI REST Server -- API Gateway connecting frontend UI requests to credit scoring models and Nivesh Mitra advisor services.",
+      "tags": [
+        "python",
+        "fastapi",
+        "api",
+        "entrypoint"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "frontend/app.py",
+      "lineRange": [
+        1,
+        150
+      ],
+      "summary": "Streamlit Interactive Web Dashboard -- User interface for entering financial metrics, displaying credit score radar charts, and investment strategies.",
+      "tags": [
+        "python",
+        "streamlit",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/requirements.txt",
+      "type": "config",
+      "name": "requirements.txt",
+      "filePath": "backend/requirements.txt",
+      "summary": "Backend Dependency Specs -- Defines FastAPI, uvicorn, scikit-learn, pandas, numpy, and shap versions.",
+      "tags": [
+        "config",
+        "python",
+        "pip"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project Documentation -- Installation instructions, architecture overview, and API endpoint documentation.",
+      "tags": [
+        "docs",
+        "markdown"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:data/generate_synthetic_data.py",
+      "target": "file:data/synthetic_users.csv",
+      "type": "writes_to",
+      "direction": "forward",
+      "description": "Generates dataset",
+      "weight": 1.0
+    },
+    {
+      "source": "file:backend/scoring/model.py",
+      "target": "file:data/synthetic_users.csv",
+      "type": "reads_from",
+      "direction": "forward",
+      "description": "Trains on synthetic profile data",
+      "weight": 0.9
+    },
+    {
+      "source": "file:backend/scoring/model.py",
+      "target": "file:backend/scoring/credit_model.pkl",
+      "type": "writes_to",
+      "direction": "forward",
+      "description": "Serializes trained ML classifier",
+      "weight": 1.0
+    },
+    {
+      "source": "file:backend/scoring/explain.py",
+      "target": "file:backend/scoring/model.py",
+      "type": "imports",
+      "direction": "forward",
+      "description": "Computes feature importance and SHAP values",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/advisor/nivesh_mitra.py",
+      "target": "file:backend/advisor/growth_projection.py",
+      "type": "imports",
+      "direction": "forward",
+      "description": "Calculates future value for recommended allocations",
+      "weight": 0.9
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/scoring/model.py",
+      "type": "imports",
+      "direction": "forward",
+      "description": "Infers credit score for user input API request",
+      "weight": 1.0
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/scoring/explain.py",
+      "type": "imports",
+      "direction": "forward",
+      "description": "Fetches score breakdown and explanatory factors",
+      "weight": 0.85
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/advisor/nivesh_mitra.py",
+      "type": "imports",
+      "direction": "forward",
+      "description": "Fetches tailored investment recommendations",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frontend/app.py",
+      "target": "file:backend/main.py",
+      "type": "calls",
+      "direction": "forward",
+      "description": "REST API HTTP POST request with user profile",
+      "weight": 1.0
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/requirements.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "description": "Runtime dependencies",
+      "weight": 0.7
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer-data",
+      "name": "Data Pipeline",
+      "description": "Synthetic data generation and feature dataset storage",
+      "nodeIds": [
+        "file:data/generate_synthetic_data.py",
+        "file:data/synthetic_users.csv"
+      ]
+    },
+    {
+      "id": "layer-ml",
+      "name": "Credit Scoring Engine",
+      "description": "Random Forest classifier, explainability engine, and pickled models",
+      "nodeIds": [
+        "file:backend/scoring/model.py",
+        "file:backend/scoring/explain.py",
+        "file:backend/scoring/credit_model.pkl"
+      ]
+    },
+    {
+      "id": "layer-advisor",
+      "name": "Nivesh Mitra Core",
+      "description": "Asset allocation rules, risk-based strategy engine, and growth projection formulas",
+      "nodeIds": [
+        "file:backend/advisor/nivesh_mitra.py",
+        "file:backend/advisor/growth_projection.py"
+      ]
+    },
+    {
+      "id": "layer-api",
+      "name": "FastAPI Backend API",
+      "description": "REST gateway orchestrating model scoring and advisory services",
+      "nodeIds": [
+        "file:backend/main.py",
+        "file:backend/requirements.txt"
+      ]
+    },
+    {
+      "id": "layer-frontend",
+      "name": "Streamlit UI",
+      "description": "Interactive web app interface for financial inputs and investment visualization",
+      "nodeIds": [
+        "file:frontend/app.py"
+      ]
+    },
+    {
+      "id": "layer-docs",
+      "name": "Documentation",
+      "description": "Project documentation and setup guides",
+      "nodeIds": [
+        "file:README.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "1. Data Generation Pipeline",
+      "description": "generate_synthetic_data.py generates financial credit profiles saved to synthetic_users.csv.",
+      "nodeIds": [
+        "file:data/generate_synthetic_data.py",
+        "file:data/synthetic_users.csv"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "2. Credit Risk ML Engine",
+      "description": "model.py trains Random Forest classifier and outputs binary weights credit_model.pkl.",
+      "nodeIds": [
+        "file:backend/scoring/model.py",
+        "file:backend/scoring/credit_model.pkl"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "3. Model Explainability",
+      "description": "explain.py computes feature importances for user credit decision transparency.",
+      "nodeIds": [
+        "file:backend/scoring/explain.py"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "4. Nivesh Mitra Advisory Rules",
+      "description": "nivesh_mitra.py matches credit scores and risk profiles to personalized investment allocations.",
+      "nodeIds": [
+        "file:backend/advisor/nivesh_mitra.py"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "5. Compound Growth Calculator",
+      "description": "growth_projection.py projects asset growth and SIP yields over custom time horizons.",
+      "nodeIds": [
+        "file:backend/advisor/growth_projection.py"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "6. FastAPI Gateway",
+      "description": "main.py exposes REST endpoints connecting UI input to scoring and advisory engines.",
+      "nodeIds": [
+        "file:backend/main.py"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "7. Streamlit Interactive Dashboard",
+      "description": "app.py renders the interactive web interface with credit score charts and investment strategies.",
+      "nodeIds": [
+        "file:frontend/app.py"
+      ]
+    }
+  ]
+}

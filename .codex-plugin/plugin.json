@@ -1,0 +1,20 @@
+{
+  "name": "reviewer",
+  "version": "1.0.0",
+  "description": "Unified code review toolkit: codebase analysis, security audit, and lazy senior dev mode.",
+  "author": {
+    "name": "Merged"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "codebase-analysis", "security-audit", "yagni"],
+  "skills": "./skills/",
+  "hooks": "./hooks/claude-codex-hooks.json",
+  "interface": {
+    "displayName": "Reviewer",
+    "shortDescription": "Unified code review toolkit",
+    "longDescription": "Codebase analysis (knowledge graphs, dashboards, tours), security audits (OWASP, CWE, PDF reports), and lazy senior dev mode (YAGNI, stdlib first).",
+    "category": "Productivity",
+    "capabilities": ["Instructions", "Lifecycle hooks"],
+    "brandColor": "#111111"
+  }
+}
