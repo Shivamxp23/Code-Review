@@ -146,7 +146,7 @@ function readSourceFile(url: URL) {
   }
 
   const projectRoot = projectRootFromGraphFile(graphFile);
-  const absoluteFile = path.resolve(projectRoot, normalizedPath);
+  let absoluteFile = path.resolve(projectRoot, normalizedPath);
   const relativeToRoot = path.relative(projectRoot, absoluteFile);
   if (
     !relativeToRoot ||
@@ -157,15 +157,21 @@ function readSourceFile(url: URL) {
     return rejectFileRequest("Path must stay inside the project");
   }
   const safeRelativePath = relativeToRoot.split(path.sep).join("/");
-  if (!graphFilePathSet(graphFile, projectRoot).has(safeRelativePath)) {
-    return rejectFileRequest("File is not in the knowledge graph", 404);
-  }
+
+  // Also allow lookup inside temp_repo/ for externally cloned repositories
+  const tempRepoFile = path.resolve(projectRoot, "temp_repo", normalizedPath);
 
   let stat: fs.Stats;
   try {
     stat = fs.statSync(absoluteFile);
   } catch {
-    return rejectFileRequest("File not found", 404);
+    // Fallback: try temp_repo/ subfolder
+    try {
+      stat = fs.statSync(tempRepoFile);
+      absoluteFile = tempRepoFile;
+    } catch {
+      return rejectFileRequest("File not found", 404);
+    }
   }
 
   if (!stat.isFile()) return rejectFileRequest("Path is not a file");
