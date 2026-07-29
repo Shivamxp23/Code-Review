@@ -758,19 +758,9 @@ function DashboardContent({
             reviewerMode === "agent-friendly" ? (
               <AgentPlanView />
             ) : reviewerDetailLevel === "high-level" ? (
-              <div className="h-full flex flex-col">
-                <PromptInputPanel />
-                <div className="flex-1 min-h-0">
-                  <ArchitectureImpactView />
-                </div>
-              </div>
+              <ArchitectureImpactView />
             ) : (
-              <div className="h-full flex flex-col">
-                <PromptInputPanel />
-                <div className="flex-1 min-h-0 overflow-auto p-4">
-                  <AtomicImpactView />
-                </div>
-              </div>
+              <AtomicImpactView />
             )
           ) : viewMode === "qa" ? (
             <div className="h-full flex flex-col overflow-auto p-4 gap-6">
