@@ -47,11 +47,12 @@ export default function ArchitectureImpactView() {
   }
 
   // Layout constants
-  const nodeW = 260;
-  const nodeH = 70;
-  const gapY = 40;
+  const nodeW = 280;
+  const nodeH = 72;
+  const gapY = 44;
   const startY = 60;
-  const centerX = 350;
+  const svgW = nodeW + 120;
+  const centerX = svgW / 2;
   const totalH = startY + (steps.length + 1) * (nodeH + gapY) + 60;
 
   // Colors for flowchart nodes
@@ -112,9 +113,9 @@ export default function ArchitectureImpactView() {
       {/* Flowchart SVG */}
       <div className="flex justify-center px-6 py-8">
         <svg
-          width={nodeW + 200}
+          width={svgW}
           height={totalH}
-          viewBox={`0 0 ${nodeW + 200} ${totalH}`}
+          viewBox={`0 0 ${svgW} ${totalH}`}
           className="select-none"
         >
           {/* START node */}

@@ -48,7 +48,8 @@ export default function AtomicImpactView() {
   const nodeH = 56;
   const gapY = 48;
   const startY = 30;
-  const centerX = 380;
+  const svgW = nodeW + 120;
+  const centerX = svgW / 2;
   const posMap = new Map<string, { x: number; y: number }>();
   order.forEach((id, i) => {
     posMap.set(id, { x: centerX, y: startY + i * (nodeH + gapY) });
@@ -89,9 +90,9 @@ export default function AtomicImpactView() {
 
         <div className="flex justify-center px-4 py-6">
           <svg
-            width={nodeW + 200}
+            width={svgW}
             height={totalH}
-            viewBox={`0 0 ${nodeW + 200} ${totalH}`}
+            viewBox={`0 0 ${svgW} ${totalH}`}
             className="select-none"
           >
             {/* Edges */}
