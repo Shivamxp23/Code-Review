@@ -28,3 +28,7 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# Exported logs & history
+conversation_history*.md
+
